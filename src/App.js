@@ -1,23 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import Header from "./components/Header"
+import Footer from "./components/Footer"
+import Home from "./pages/Home";
+import PokemonIndex from "./pages/PokemonIndex";
+import PokemonEdit from "./pages/PokemonEdit";
+import PokemonNew from "./pages/PokemonNew";
+import PokemonShow from "./pages/PokemonShow";
+import NotFound from "./pages/NotFound";
+import { Routes, Route } from "react-router-dom";
+import mockPokemon from "./mockPokemon"
+import "./App.css"
 
-function App() {
+
+const App = () => {
+  const [pokemons, setPokemons] = useState(mockPokemon)
+  console.log(pokemons)
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app-container">
+      <Header />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/pokemonindex" element={<PokemonIndex />} />
+        <Route path="/pokemonedit" element={<PokemonEdit />} />
+        <Route path="/pokemonnew" element={<PokemonNew />} />
+        <Route path="/pokemonshow" element={<PokemonShow />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+      <Footer />
     </div>
   );
 }
