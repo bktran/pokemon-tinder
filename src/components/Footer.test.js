@@ -9,7 +9,7 @@ describe("<Footer />", () => {
               <Footer />
             </BrowserRouter>
           )
-        const footer = screen.getByText("Created by Peter and Bao")
+        const footer = screen.getByText("© Created by Peter and Bao")
         expect(footer).toBeInTheDocument()
     })
 })
