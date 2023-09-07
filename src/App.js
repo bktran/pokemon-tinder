@@ -17,7 +17,7 @@ const App = () => {
   console.log(pokemons)
 
   return (
-    <>
+    <div className="app-container">
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -28,7 +28,7 @@ const App = () => {
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
-    </>
+    </div>
   );
 }
 

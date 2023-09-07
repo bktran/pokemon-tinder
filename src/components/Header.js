@@ -7,7 +7,7 @@ import './header.css'
 const Header = () => {
   return (
     <Nav className="nav-container">
-      <NavItem >
+      <NavItem>
         <NavLink to="/" className='nav-link'>
           <img src={pokeball} alt='pokeball home image' width="50px"/>
         </NavLink>
