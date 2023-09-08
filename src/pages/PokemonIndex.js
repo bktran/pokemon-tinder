@@ -1,12 +1,90 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Card, CardBody, CardTitle, CardSubtitle, Button } from "reactstrap";
+import {
+  Carousel,
+  CarouselItem,
+  CarouselControl,
+  CarouselIndicators,
+  CarouselCaption
+} from 'reactstrap';
+import mockPokemon from "../mockPokemon";
 import { NavLink } from 'react-router-dom';
+import './PokemonIndex.css'
+
+
+// const PokemonIndex = ({ pokemons }) => {
+//   return (
+//     <>
+//     {pokemons?.map((pokemon, index) => {
+//       return (
+//         <Card
+//           body
+//           color="light"
+//           style={{
+//             width: '18rem'
+//           }}
+//           key={index}
+//         >
+//           <img
+//             alt={`profile of a pokemon name ${pokemon.name}`}
+//             src={pokemon.image}
+//           />
+//           <CardBody>
+//             <CardTitle tag="h5">
+//               {pokemon.name}
+//             </CardTitle>
+//             <CardSubtitle
+//               className="mb-2 text-muted"
+//               tag="h6"
+//             >
+//               Level: {pokemon.level}
+//             </CardSubtitle>
+
+//             <Button>
+//               <NavLink to={`/pokemonshow/${pokemon.id}`}>
+//               See More Details
+//               </NavLink>
+//             </Button>
+//           </CardBody>
+//         </Card>
+
+//       )
+//     })}
+//     </>
+//   )
+
+// }
+const items = mockPokemon
 
 const PokemonIndex = ({ pokemons }) => {
-  return (
-    <>
-    {pokemons?.map((pokemon, index) => {
-      return (
+
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [animating, setAnimating] = useState(false);
+
+  const next = () => {
+    if (animating) return;
+    const nextIndex = activeIndex === items.length - 1 ? 0 : activeIndex + 1;
+    setActiveIndex(nextIndex);
+  };
+
+  const previous = () => {
+    if (animating) return;
+    const nextIndex = activeIndex === 0 ? items.length - 1 : activeIndex - 1;
+    setActiveIndex(nextIndex);
+  };
+
+  const goToIndex = (newIndex) => {
+    if (animating) return;
+    setActiveIndex(newIndex);
+  };
+
+  const slides = items.map((item, index) => {
+    return (
+      <CarouselItem 
+        onExiting={() => setAnimating(true)}
+        onExited={() => setAnimating(false)}
+        key={index}
+      >
         <Card
           body
           color="light"
@@ -16,33 +94,61 @@ const PokemonIndex = ({ pokemons }) => {
           key={index}
         >
           <img
-            alt={`profile of a pokemon name ${pokemon.name}`}
-            src={pokemon.image}
+            alt={`profile of a pokemon name ${item.name}`}
+            src={item.image}
           />
           <CardBody>
             <CardTitle tag="h5">
-              {pokemon.name}
+              {item.name}
             </CardTitle>
             <CardSubtitle
               className="mb-2 text-muted"
               tag="h6"
             >
-              Level: {pokemon.level}
+              Level: {item.level}
             </CardSubtitle>
-            
+
             <Button>
-              <NavLink to={`/pokemonshow/${pokemon.id}`}>
+              <NavLink to={`/pokemonshow/${item.id}`}>
               See More Details
               </NavLink>
             </Button>
           </CardBody>
         </Card>
-       
-      )
-    })}
-    </>
+      </CarouselItem>
+    );
+  })
+
+  return (
+    <Carousel
+      activeIndex={activeIndex}
+      next={next}
+      previous={previous}
+      {...items}
+      interval={null}
+    >
+      {/* <CarouselIndicators
+        items={items}
+        activeIndex={activeIndex}
+        onClickHandler={goToIndex}
+      /> */}
+      {slides}
+      <CarouselControl
+        direction="prev"
+        directionText="Previous"
+        onClickHandler={previous}
+        
+      />
+      <CarouselControl
+        direction="next"
+        directionText="Next"
+        onClickHandler={next}
+      />
+    </Carousel>
   )
 
 }
+
+
 
 export default PokemonIndex

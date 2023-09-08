@@ -1,0 +1,15 @@
+.carousel-inner {
+  background-color: black;
+}
+
+.card{
+    margin: auto;
+    position: relative;
+    margin-top: 100px;
+    margin-bottom: 150px;
+}
+
+.card-body {
+    text-align: center;
+}
+
