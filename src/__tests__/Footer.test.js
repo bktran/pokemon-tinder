@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react"
 import { BrowserRouter } from "react-router-dom"
-import Footer from "./Footer"
+import Footer from "../components/Footer"
 
 describe("<Footer />", () => {
     it("renders without crashing", () => {
@@ -9,7 +9,7 @@ describe("<Footer />", () => {
               <Footer />
             </BrowserRouter>
           )
-        const footer = screen.getByText("Created by Peter and Bao")
+        const footer = screen.getByText("© Created by Peter and Bao")
         expect(footer).toBeInTheDocument()
     })
 })
