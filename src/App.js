@@ -21,10 +21,10 @@ const App = () => {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/pokemonindex" element={<PokemonIndex />} />
+        <Route path="/pokemonindex" element={<PokemonIndex pokemons={pokemons}/>} />
         <Route path="/pokemonedit" element={<PokemonEdit />} />
         <Route path="/pokemonnew" element={<PokemonNew />} />
-        <Route path="/pokemonshow" element={<PokemonShow />} />
+        <Route path="/pokemonshow/:id" element={<PokemonShow pokemons={pokemons}/>} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />

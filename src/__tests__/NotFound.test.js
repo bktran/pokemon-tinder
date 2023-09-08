@@ -1,15 +1,15 @@
 import { render, screen } from "@testing-library/react"
 import { BrowserRouter } from "react-router-dom"
-import Home from "./Home"
+import NotFound from "../pages/NotFound"
 
-describe("<Home />", () => {
-    it("renders landing without crashing", () => {
+describe("<NotFound />", () => {
+    it("renders error page without crashing", () => {
       render(
         <BrowserRouter>
-          <Home />
+          <NotFound />
         </BrowserRouter>
       )
-      const greeting = screen.getByText("Welcome to Pokemon Tinder!")
+      const greeting = screen.getByText("Not Found")
       expect(greeting).toBeInTheDocument()
     })
      
