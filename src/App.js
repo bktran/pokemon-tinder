@@ -14,7 +14,10 @@ import "./App.css"
 
 const App = () => {
   const [pokemons, setPokemons] = useState(mockPokemon)
-  console.log(pokemons)
+
+  const createPokemon = (pokemon) => {
+    console.log("Created pokemon", pokemon)
+  }
 
   return (
     <div className="app-container">
@@ -23,7 +26,7 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/pokemonindex" element={<PokemonIndex pokemons={pokemons}/>} />
         <Route path="/pokemonedit" element={<PokemonEdit />} />
-        <Route path="/pokemonnew" element={<PokemonNew />} />
+        <Route path="/pokemonnew" element={<PokemonNew createPokemon={createPokemon}/>} />
         <Route path="/pokemonshow/:id" element={<PokemonShow pokemons={pokemons}/>} />
         <Route path="*" element={<NotFound />} />
       </Routes>
