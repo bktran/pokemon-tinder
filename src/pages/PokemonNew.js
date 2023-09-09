@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Form, FormGroup, Input, Label, Button } from "reactstrap"
 import { useNavigate } from "react-router-dom"
+import './PokemonNew.css'
 
 const PokemonNew = ({ createPokemon }) => {
 
@@ -25,7 +26,7 @@ const PokemonNew = ({ createPokemon }) => {
   }
 
   return (
-    <Form>
+    <Form className='form'>
       <FormGroup>
         <Label for="name">Name:</Label>
         <Input id="name" type="text" name="name" onChange={handleChange} value={newPokemon.name} />
@@ -60,9 +61,11 @@ const PokemonNew = ({ createPokemon }) => {
         <Label for="weak_against">Weak Against:</Label>
         <Input id="weak_against" type="text" name="weak_against" onChange={handleChange} value={newPokemon.weak_against} />
       </FormGroup>
+      <div className='button'>
       <Button onClick={handleSubmit} name="submit">
         Add to Pokedex
       </Button>
+      </div>
     </Form>
   )
 }

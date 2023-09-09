@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Header from "./components/Header"
 import Footer from "./components/Footer"
 import Home from "./pages/Home";
@@ -7,8 +7,9 @@ import PokemonEdit from "./pages/PokemonEdit";
 import PokemonNew from "./pages/PokemonNew";
 import PokemonShow from "./pages/PokemonShow";
 import NotFound from "./pages/NotFound";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import mockPokemon from "./mockPokemon"
+
 import "./App.css"
 
 
@@ -19,8 +20,21 @@ const App = () => {
     console.log("Created pokemon", pokemon)
   }
 
+
+  const location = useLocation();
+  const [backgroundImage, setBackgroundImage] = useState('');
+ 
+  useEffect(() => {
+    if (location.pathname === '/pokemonindex'){
+        setBackgroundImage(`url("https://pixahive.com/wp-content/uploads/2021/02/green-grass-effect-background-336011-pixahive.jpg")`);
+    }else{
+        setBackgroundImage('')
+    }
+  }, [location.pathname])
+
+
   return (
-    <div className="app-container">
+    <div className="app-container" style={{ backgroundImage }}>
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />

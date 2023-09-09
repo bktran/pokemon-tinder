@@ -1,12 +1,20 @@
+
+
 .carousel-inner {
-  background-color: black;
+  /* background-image: url("https://pixahive.com/wp-content/uploads/2021/02/green-grass-effect-background-336011-pixahive.jpg"); */
+  background-size: cover;
+  background-position: center;
+  object-fit: cover;
+  height: 100%;
 }
+
 
 .card{
     margin: auto;
     position: relative;
     margin-top: 100px;
     margin-bottom: 150px;
+    background-color: rgba(255, 255, 255, 0.4) !important;
 }
 
 .card-body {

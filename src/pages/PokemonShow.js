@@ -1,11 +1,12 @@
 import React from 'react';
 import { useParams } from "react-router-dom";
+import './PokemonShow.css'; 
 
 const PokemonShow = ({ pokemons }) => {
   const { id } = useParams()
   let selectedPokemon = pokemons.find((pokemon) => pokemon.id === +id)
   return (
-    <div>
+    <div className='show-container'>
       <img src={selectedPokemon.image} />
       <h4>My Specialty is: {selectedPokemon.specialty}</h4>
       <h4>I am strong against: {selectedPokemon.strong_against}</h4>

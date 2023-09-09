@@ -10,7 +10,7 @@ import {
 import mockPokemon from "../mockPokemon";
 import { NavLink } from 'react-router-dom';
 import './PokemonIndex.css'
-
+import grass from '../assets/green-grass.jpeg'
 
 // const PokemonIndex = ({ pokemons }) => {
 //   return (
