@@ -20,7 +20,7 @@ const pokemons = [
       enjoys: 'play with fire'
   },
   {
-      id: 2,
+      id: 3,
       name: 'Squirtle',
       specialty: 'Water',
       level: 7,

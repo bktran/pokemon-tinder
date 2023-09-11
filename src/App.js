@@ -7,38 +7,71 @@ import PokemonEdit from "./pages/PokemonEdit";
 import PokemonNew from "./pages/PokemonNew";
 import PokemonShow from "./pages/PokemonShow";
 import NotFound from "./pages/NotFound";
-import { Routes, Route, useLocation } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import mockPokemon from "./mockPokemon"
 
 import "./App.css"
 
 
 const App = () => {
-  const [pokemons, setPokemons] = useState(mockPokemon)
+  const [pokemons, setPokemons] = useState([])
 
-  const createPokemon = (pokemon) => {
-    console.log("Created pokemon", pokemon)
+  useEffect(() => {
+    readPokemon()
+   
+  }, [])
+
+  const readPokemon = () => {
+    fetch("http://localhost:3000/pokemons")
+      .then((response) => response.json())
+      .then((payload) => {
+        setPokemons(payload)
+      })
+      .catch((error) => console.log(error))
   }
 
-
-  const location = useLocation();
-  
- 
-  // useEffect(() => {
-  //   if (location.pathname === '/pokemonindex'){
-  //       setBackgroundImage(`url("https://pixahive.com/wp-content/uploads/2021/02/green-grass-effect-background-336011-pixahive.jpg")`);
-  //   }else if (location.pathname === '/'){
-  //       setBackgroundImage(`url(https://i.redd.it/c5jb4d6mn0ky.png)`)
-  //   }else if (location.pathname === '/pokemonnew'){
-  //       setBackgroundImage(`url(https://i.pinimg.com/originals/2b/3b/04/2b3b04771ccca26c3dd96d781b0117ca.jpg)`)
-  //   }else{
-  //       setBackgroundImage('')
-  //   }
-  // }, [location.pathname])
+  const createPokemon = (pokemon) => {
+    fetch("http://localhost:3000/pokemons", {
+      // converts the object to a string that can be passed in the request
+      body: JSON.stringify(pokemon),
+      // specify the info being sent in JSON and the info returning should be JSON
+      headers: {
+        "Content-Type": "application/json"
+      },
+      // HTTP verb so the correct endpoint is invoked on the server
+      method: "POST"
+    })
+      .then((response) => response.json())
+      .then(() => readPokemon())
+      .catch((errors) => console.log("Pokemon create errors:", errors))
+  }
 
   const updatePokemon = (pokemon, id) => {
-    console.log("pokemon:", pokemon)
-    console.log("id:", id)
+    fetch(`http://localhost:3000/pokemons/${id}`, {
+      // converting an object to a string
+      body: JSON.stringify(pokemon),
+      // specify the info being sent in JSON and the info returning should be JSON
+      headers: {
+        "Content-Type": "application/json"
+      },
+      // HTTP verb so the correct endpoint is invoked on the server
+      method: "PATCH"
+    })
+      .then((response) => response.json())
+      .then(() => readPokemon())
+      .catch((errors) => console.log("Pokemon update errors:", errors))
+  }
+
+  const deletePokemon = (id) => {
+    fetch(`http://localhost:3000/pokemons/${id}`, {
+      headers: {
+        "Content-Type": "application/json"
+      },
+      method: "DELETE"
+    })
+      .then((response) => response.json())
+      .then(() => readPokemon())
+      .catch((errors) => console.log("delete errors:", errors))
   }
 
   return (
@@ -49,7 +82,7 @@ const App = () => {
         <Route path="/pokemonindex" element={<PokemonIndex pokemons={pokemons}/>} />
         <Route path="/pokemonedit/:id" element={<PokemonEdit pokemons={pokemons} updatePokemon={updatePokemon}/>} />
         <Route path="/pokemonnew" element={<PokemonNew createPokemon={createPokemon}/>} />
-        <Route path="/pokemonshow/:id" element={<PokemonShow pokemons={pokemons}/>} />
+        <Route path="/pokemonshow/:id" element={<PokemonShow pokemons={pokemons} deletePokemon={deletePokemon}/>} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
