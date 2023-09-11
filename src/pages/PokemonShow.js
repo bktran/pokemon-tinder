@@ -1,8 +1,9 @@
 import React from 'react';
 import { useParams, NavLink } from "react-router-dom";
+import { Button } from 'reactstrap';
 import './PokemonShow.css';
 
-const PokemonShow = ({ pokemons }) => {
+const PokemonShow = ({ pokemons, deletePokemon }) => {
   const { id } = useParams()
   let selectedPokemon = pokemons.find((pokemon) => pokemon.id === +id)
   return (
@@ -15,7 +16,10 @@ const PokemonShow = ({ pokemons }) => {
       <NavLink to={`/pokemonedit/${selectedPokemon.id}`} className="nav-link">
         Edit Pokemon
       </NavLink>
-
+      <NavLink to="/pokemonindex">
+        <Button onClick={() => 
+          deletePokemon(id)}>Delete Pokemon</Button>
+      </NavLink>
     </div>
   )
 }

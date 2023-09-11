@@ -12,9 +12,9 @@ import { NavLink } from 'react-router-dom';
 import './PokemonIndex.css'
 import grass from '../assets/green-grass.jpeg'
 
-const items = mockPokemon
 
 const PokemonIndex = ({ pokemons }) => {
+  const items = pokemons
 
   const [activeIndex, setActiveIndex] = useState(0);
   const [animating, setAnimating] = useState(false);
