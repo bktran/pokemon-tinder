@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Form, FormGroup, Input, Label, Button } from "reactstrap"
 import { useNavigate } from "react-router-dom"
 import './PokemonNew.css'
+import form from '../assets/form.jpeg'
 
 const PokemonNew = ({ createPokemon }) => {
 
@@ -26,7 +27,15 @@ const PokemonNew = ({ createPokemon }) => {
   }
 
   return (
+    <div>
     <Form className='form'>
+      <div className='second-container'>
+      <div className='heading-container'>
+    <div className='heading'>
+      <h1>Add a Pokemon!</h1>
+    </div>
+    </div>
+   <div className='form-content'>
       <FormGroup>
         <Label for="name">Name:</Label>
         <Input id="name" type="text" name="name" onChange={handleChange} value={newPokemon.name} />
@@ -66,7 +75,10 @@ const PokemonNew = ({ createPokemon }) => {
         Add to Pokedex
       </Button>
       </div>
+      </div>
+      </div>
     </Form>
+    </div>
   )
 }
 

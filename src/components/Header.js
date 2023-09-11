@@ -9,18 +9,26 @@ const Header = () => {
 
   const location = useLocation();
   
-  const [backgroundColor, setBackgroundColor] = useState('');
+  const [marginBottom, setMarginBottom] = useState('');
+
+  // useEffect(() => {
+  //   if (location.pathname === '/pokemonindex' || location.pathname === '/' || location.pathname === '/pokemonnew'){
+  //       setBackgroundColor('transparent')
+  //   }else{
+  //       setBackgroundColor('')
+  //   }
+  // }, [location.pathname])
 
   useEffect(() => {
     if (location.pathname === '/pokemonindex'){
-        setBackgroundColor('transparent')
+      setMarginBottom('50px')
     }else{
-        setBackgroundColor('')
+      setMarginBottom('')
     }
-  }, [location.pathname])
+  })
 
   return (
-    <Nav className="nav-container" style={{ backgroundColor }}>
+    <Nav className="nav-container" style={{ marginBottom }}>
       <NavItem>
         <NavLink to="/" className='nav-link'>
           <img src={pokeball} alt='pokeball home image' width="50px"/>

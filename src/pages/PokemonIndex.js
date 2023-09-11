@@ -12,48 +12,6 @@ import { NavLink } from 'react-router-dom';
 import './PokemonIndex.css'
 import grass from '../assets/green-grass.jpeg'
 
-// const PokemonIndex = ({ pokemons }) => {
-//   return (
-//     <>
-//     {pokemons?.map((pokemon, index) => {
-//       return (
-//         <Card
-//           body
-//           color="light"
-//           style={{
-//             width: '18rem'
-//           }}
-//           key={index}
-//         >
-//           <img
-//             alt={`profile of a pokemon name ${pokemon.name}`}
-//             src={pokemon.image}
-//           />
-//           <CardBody>
-//             <CardTitle tag="h5">
-//               {pokemon.name}
-//             </CardTitle>
-//             <CardSubtitle
-//               className="mb-2 text-muted"
-//               tag="h6"
-//             >
-//               Level: {pokemon.level}
-//             </CardSubtitle>
-
-//             <Button>
-//               <NavLink to={`/pokemonshow/${pokemon.id}`}>
-//               See More Details
-//               </NavLink>
-//             </Button>
-//           </CardBody>
-//         </Card>
-
-//       )
-//     })}
-//     </>
-//   )
-
-// }
 const items = mockPokemon
 
 const PokemonIndex = ({ pokemons }) => {
@@ -80,6 +38,7 @@ const PokemonIndex = ({ pokemons }) => {
 
   const slides = items.map((item, index) => {
     return (
+      
       <CarouselItem 
         onExiting={() => setAnimating(true)}
         onExited={() => setAnimating(false)}
@@ -116,6 +75,7 @@ const PokemonIndex = ({ pokemons }) => {
           </CardBody>
         </Card>
       </CarouselItem>
+      
     );
   })
 
