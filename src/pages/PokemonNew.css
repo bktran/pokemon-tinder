@@ -4,8 +4,7 @@
     width: 100%;
     background-size: cover;
     background-position: center;
-    object-fit: cover;
-     
+    object-fit: cover;  
 }
 
 .heading-container {
@@ -24,7 +23,9 @@
 }
 
 .heading-container h1{
-    color: white;
+    color: #ffcc03;
+    text-shadow: 2px 2px 0 #2a75bb, -2px -2px 0 #2a75bb, 2px -2px 0 #2a75bb, -2px 2px 0 #2a75bb;
+    font-size: 50px;
 }
 
 .second-container {
@@ -37,17 +38,32 @@
     align-items: center;
 }
 
+.button .add-button {
+    background: #4DAD5B;
+    color: #ffcc03;
+    text-shadow: -1px -1px 0 #2a75bb, 1px -1px 0 #2a75bb, -1px 1px 0 #2a75bb, 1px 1px 0 #2a75bb;
+}
+
+.button .add-button:hover {
+    filter: brightness(120%);
+    transition: 0.3s;
+}
+
 .form-content{
     margin-left: 20%;
     margin-right: 20%;
 }
 
 .form-content label {
-    color: white;
+    color: #ffcc03;
+    text-shadow: -1px -1px 0 #2a75bb, 1px -1px 0 #2a75bb, -1px 1px 0 #2a75bb, 1px 1px 0 #2a75bb;
     font-weight: bold;
+    font-size: 20px;
 }
 
 .form-content input {
     background-color: transparent;
     backdrop-filter: blur(10px);
+    color: #EFFCD5;
 }
+

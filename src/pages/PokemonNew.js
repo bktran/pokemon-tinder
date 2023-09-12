@@ -71,7 +71,7 @@ const PokemonNew = ({ createPokemon }) => {
         <Input id="weak_against" type="text" name="weak_against" onChange={handleChange} value={newPokemon.weak_against} />
       </FormGroup>
       <div className='button'>
-      <Button onClick={handleSubmit} name="submit">
+      <Button onClick={handleSubmit} name="submit" className='add-button'>
         Add to Pokedex
       </Button>
       </div>

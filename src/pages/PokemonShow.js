@@ -8,18 +8,20 @@ const PokemonShow = ({ pokemons, deletePokemon }) => {
   let selectedPokemon = pokemons.find((pokemon) => pokemon.id === +id)
   return (
     <div className='show-container'>
-      <img src={selectedPokemon.image} />
-      <h4>My Specialty is: {selectedPokemon.specialty}</h4>
-      <h4>I am strong against: {selectedPokemon.strong_against}</h4>
-      <h4>I am weak against: {selectedPokemon.weak_against}</h4>
-      <h4>Hobbies: {selectedPokemon.enjoys}</h4>
-      <NavLink to={`/pokemonedit/${selectedPokemon.id}`} className="nav-link">
-        Edit Pokemon
+      <img src={selectedPokemon.image} style={{width: "400px"}}/>
+      <h4><span className='attributes'>My Specialty is:</span><span className='values'>{selectedPokemon.specialty}</span></h4>
+      <h4><span className='attributes'>I am strong against:</span><span className='values'>{selectedPokemon.strong_against}</span></h4>
+      <h4><span className='attributes'>I am weak against:</span><span className='values'>{selectedPokemon.weak_against}</span></h4>
+      <h4><span className='attributes'>Hobbies:</span><span className='values'>{selectedPokemon.enjoys}</span></h4>
+      <div className='buttons'>
+      <NavLink to={`/pokemonedit/${selectedPokemon.id}`}>
+        <Button className='btn1'>Edit Pokemon</Button>
       </NavLink>
       <NavLink to="/pokemonindex">
-        <Button onClick={() => 
+        <Button className='btn2' onClick={() => 
           deletePokemon(id)}>Delete Pokemon</Button>
       </NavLink>
+      </div>
     </div>
   )
 }

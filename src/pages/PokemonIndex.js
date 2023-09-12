@@ -67,7 +67,7 @@ const PokemonIndex = ({ pokemons }) => {
               Level: {item.level}
             </CardSubtitle>
 
-            <Button>
+            <Button className='index-button'>
               <NavLink to={`/pokemonshow/${item.id}`}>
               See More Details
               </NavLink>

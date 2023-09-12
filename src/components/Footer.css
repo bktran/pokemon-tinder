@@ -4,5 +4,7 @@
     left: 0;
     bottom: 0;
     right: 0;
-    padding-bottom: 60px;
+    padding-bottom: 40px;
+    color: #ffcc03; 
+    text-shadow: -1px -1px 0 #2a75bb, 1px -1px 0 #2a75bb, -1px 1px 0 #2a75bb, 1px 1px 0 #2a75bb;
 }
