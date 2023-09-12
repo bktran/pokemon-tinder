@@ -1,0 +1,10 @@
+.button .edit-button {
+    background: #3B4CCA;
+    color: #ffcc03;
+    text-shadow: -1px -1px 0 #2a75bb, 1px -1px 0 #2a75bb, -1px 1px 0 #2a75bb, 1px 1px 0 #2a75bb;
+}
+
+.button .edit-button:hover {
+    filter: brightness(120%);
+    transition: 0.3s;
+}

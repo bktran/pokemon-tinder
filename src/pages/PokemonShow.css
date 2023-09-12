@@ -1,0 +1,53 @@
+.show-container {
+    background-image: url('../assets/show.webp');
+    width: 100%;
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #ffcc03;
+    text-shadow: -1px -1px 0 #2a75bb, 1px -1px 0 #2a75bb, -1px 1px 0 #2a75bb, 1px 1px 0 #2a75bb;
+}
+
+.show-container .attributes {
+    color: #FB1B1B;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+.show-container .values {
+    color: #FFFFFF;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; 
+}
+
+.show-container .buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+}
+
+.buttons .btn1 {
+    margin-right: 20px;
+    background: #3B4CCA;
+    color: #ffcc03;
+}
+
+.buttons .btn2 {
+    margin-left: 20px;
+    background: #CC0000;
+    color: #ffcc03; 
+}
+
+.buttons .btn1:hover {
+    filter: brightness(150%);
+    transition: 0.3s;
+}
+
+.buttons .btn2:hover {
+    filter: brightness(150%);
+    transition: 0.3s;
+}

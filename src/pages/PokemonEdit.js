@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Form, FormGroup, Input, Label, Button } from "reactstrap"
 import { useNavigate, useParams } from "react-router-dom"
+import './PokemonEdit.css'
 
 const PokemonEdit = ({ pokemons, updatePokemon }) => {
   const { id } = useParams()
@@ -27,8 +28,13 @@ const PokemonEdit = ({ pokemons, updatePokemon }) => {
 
   return (
     <Form className='form'>
-      <h3>Edit Pokemon</h3>
-      <br />
+      <div className='second-container'>
+      <div className='heading-container'>
+    <div className='heading'>
+      <h1>Edit Pokemon</h1>
+      </div>
+      </div>
+      <div className='form-content'>
       <FormGroup>
         <Label for="name">Name:</Label>
         <Input id="name" type="text" name="name" onChange={handleChange} value={editPokemon.name} />
@@ -36,7 +42,7 @@ const PokemonEdit = ({ pokemons, updatePokemon }) => {
 
       <FormGroup>
         <Label for="level">Level:</Label>
-        <Input id="level" type="text" name="level" onChange={handleChange} value={editPokemon.level} />
+        <Input id="level" type="number" name="level" onChange={handleChange} value={editPokemon.level} />
         </FormGroup>
 
         <FormGroup>
@@ -64,9 +70,11 @@ const PokemonEdit = ({ pokemons, updatePokemon }) => {
         <Input id="weak_against" type="text" name="weak_against" onChange={handleChange} value={editPokemon.weak_against} />
       </FormGroup>
       <div className='button'>
-      <Button onClick={handleSubmit} name="submit">
+      <Button onClick={handleSubmit} name="submit" className='edit-button'>
         Edit Pokemon
       </Button>
+      </div>
+      </div>
       </div>
     </Form>
   )

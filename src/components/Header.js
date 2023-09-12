@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react'
 import { Nav, NavItem } from 'reactstrap'
 import { NavLink, useLocation } from 'react-router-dom'
 import pokeball from '../assets/pokeball.png'
-import grass from '../assets/green-grass.jpeg'
 import './header.css'
+import { FaBars, FaTimes } from "react-icons/fa"
 
 const Header = () => {
 
@@ -11,13 +11,10 @@ const Header = () => {
   
   const [marginBottom, setMarginBottom] = useState('');
 
-  // useEffect(() => {
-  //   if (location.pathname === '/pokemonindex' || location.pathname === '/' || location.pathname === '/pokemonnew'){
-  //       setBackgroundColor('transparent')
-  //   }else{
-  //       setBackgroundColor('')
-  //   }
-  // }, [location.pathname])
+  const [click, setClick] = useState(false);
+  const handleClick = () => {
+      setClick(!click);
+  }
 
   useEffect(() => {
     if (location.pathname === '/pokemonindex'){
@@ -35,8 +32,10 @@ const Header = () => {
         </NavLink>
       </NavItem>
 
+      <div className={click ? "nav-menu active" : 
+        "nav-menu"}>
       <NavItem>
-        <NavLink to="/pokemonindex" className='nav-link'>
+        <NavLink to="/pokemonindex" className='nav-link' id="first">
           See All Pokemon
         </NavLink>
       </NavItem>
@@ -52,7 +51,11 @@ const Header = () => {
           See Pokedex
         </a>
       </NavItem>
-
+      </div>
+      <div className='hamburger' onClick={handleClick}>
+            {click ? (<FaTimes size={20} style={{color: "#fff"}}/>
+            ) : (<FaBars size={20} style={{color: "#fff"}}/>) }
+        </div>
     </Nav>
   )
 }

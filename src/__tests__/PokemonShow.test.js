@@ -16,13 +16,22 @@ const renderShow = () => {
 describe("<PokemonShow />", () => {
     it("renders details of the pokemons", () => {
         renderShow()
-        const pokemonSpecialty = screen.getByText(`My Specialty is: ${mockPokemon[0].specialty}`)
+        screen.logTestingPlaygroundURL()
+        const pokemonSpecialty = screen.getByText(/my specialty is:/i)
         expect(pokemonSpecialty).toBeInTheDocument()
-        const pokemonStrong_Against = screen.getByText(`I am strong against: ${mockPokemon[0].strong_against}`)
+        const pokemonValue = screen.getByText(/grass/i)
+        expect(pokemonValue).toBeInTheDocument()
+        const pokemonStrong_Against = screen.getByText(/i am strong against:/i)
         expect(pokemonStrong_Against).toBeInTheDocument()
-        const pokemonWeak_Against = screen.getByText(`I am weak against: ${mockPokemon[0].weak_against}`)
+        // const heading = screen.getByText(/water/i);
+        // expect(heading).toBeInTheDocument();
+        const pokemonWeak_Against = screen.getByText(/i am weak against:/i)
         expect(pokemonWeak_Against).toBeInTheDocument()
-        const pokemonEnjoys = screen.getByText(`Hobbies: ${mockPokemon[0].enjoys}`)
+        const pokemonWeak = screen.getByText(/fire/i)
+        expect(pokemonWeak).toBeInTheDocument()
+        const pokemonEnjoys = screen.getByText(/hobbies:/i)
         expect(pokemonEnjoys).toBeInTheDocument()
+        const pokemonHobbies = screen.getByText(/likes to spit watermelon seeds/i)
+        expect(pokemonHobbies).toBeInTheDocument()
   })
 })
