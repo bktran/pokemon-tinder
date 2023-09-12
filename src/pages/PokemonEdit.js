@@ -42,7 +42,7 @@ const PokemonEdit = ({ pokemons, updatePokemon }) => {
 
       <FormGroup>
         <Label for="level">Level:</Label>
-        <Input id="level" type="text" name="level" onChange={handleChange} value={editPokemon.level} />
+        <Input id="level" type="number" name="level" onChange={handleChange} value={editPokemon.level} />
         </FormGroup>
 
         <FormGroup>

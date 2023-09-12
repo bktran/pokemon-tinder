@@ -43,7 +43,7 @@ const PokemonNew = ({ createPokemon }) => {
 
       <FormGroup>
         <Label for="level">Level:</Label>
-        <Input id="level" type="text" name="level" onChange={handleChange} value={newPokemon.level} />
+        <Input id="level" type="number" name="level" onChange={handleChange} value={newPokemon.level} />
         </FormGroup>
 
         <FormGroup>
