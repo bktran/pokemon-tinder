@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import Header from "./components/Header"
-import Footer from "./components/Footer"
 import Home from "./pages/Home";
 import PokemonIndex from "./pages/PokemonIndex";
 import PokemonEdit from "./pages/PokemonEdit";
@@ -8,7 +7,6 @@ import PokemonNew from "./pages/PokemonNew";
 import PokemonShow from "./pages/PokemonShow";
 import NotFound from "./pages/NotFound";
 import { Routes, Route } from "react-router-dom";
-import mockPokemon from "./mockPokemon"
 
 import "./App.css"
 

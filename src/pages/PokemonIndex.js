@@ -4,14 +4,10 @@ import {
   Carousel,
   CarouselItem,
   CarouselControl,
-  CarouselIndicators,
-  CarouselCaption
+  CarouselIndicators
 } from 'reactstrap';
-import mockPokemon from "../mockPokemon";
 import { NavLink } from 'react-router-dom';
 import './PokemonIndex.css'
-import grass from '../assets/green-grass.jpeg'
-
 
 const PokemonIndex = ({ pokemons }) => {
   const items = pokemons
@@ -87,11 +83,11 @@ const PokemonIndex = ({ pokemons }) => {
       {...items}
       interval={null}
     >
-      {/* <CarouselIndicators
+      <CarouselIndicators
         items={items}
         activeIndex={activeIndex}
         onClickHandler={goToIndex}
-      /> */}
+      />
       {slides}
       <CarouselControl
         direction="prev"

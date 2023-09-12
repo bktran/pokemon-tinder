@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import { Nav, NavItem } from 'reactstrap'
 import { NavLink, useLocation } from 'react-router-dom'
 import pokeball from '../assets/pokeball.png'
-import grass from '../assets/green-grass.jpeg'
 import './header.css'
 import { FaBars, FaTimes } from "react-icons/fa"
 

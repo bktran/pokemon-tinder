@@ -23,10 +23,7 @@ describe("<PokemonShow />", () => {
         expect(pokemonValue).toBeInTheDocument()
         const pokemonStrong_Against = screen.getByText(/i am strong against:/i)
         expect(pokemonStrong_Against).toBeInTheDocument()
-        // const heading = screen.getByRole('heading', {
-        //   name: /i am strong against:water/i
-        // });
-        // within(heading).getByText(/water/i);
+        // const heading = screen.getByText(/water/i);
         // expect(heading).toBeInTheDocument();
         const pokemonWeak_Against = screen.getByText(/i am weak against:/i)
         expect(pokemonWeak_Against).toBeInTheDocument()
